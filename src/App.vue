@@ -1,33 +1,20 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/selected">Selected</router-link>
-    </div>
+    <vue-nav />
     <router-view/>
   </div>
 </template>
 
+<script>
+import VueNav from './components/VueNav';
+export default {
+  components: {
+    VueNav
+  }
+}
+</script>
+
+
 <style lang="scss">
-  body {
-    background: #222;
-    color: #eee;
-  }
-  #app {
-    font-family: "Avenir", Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #eee;
-  }
-  #nav {
-    padding: 30px;
-    a {
-      font-weight: bold;
-      color: #2c3e50;
-      &.router-link-exact-active {
-        color: #E86252;
-      }
-    }
-  }
+
 </style>
