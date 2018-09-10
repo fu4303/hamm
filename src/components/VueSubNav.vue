@@ -2,7 +2,7 @@
   <section id="subnav-container">
     <section id="subnav">
       <section id="search">
-        <label>Search </label>
+        <label>Movie Search </label>
         <input type="text" placeholder="Halloween II" id="search-input"/>
       </section>
       <section id="filter">
@@ -15,7 +15,7 @@
         </select>
       </section>
       <section id="button-group">
-        <label>Child Friendly</label>
+        <label>Child Friendly </label>
         <div class="can-toggle can-toggle--size-small">
           <input
             id="toggle"
@@ -84,6 +84,7 @@ export default {
     max-width: 1000px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin: 0 auto;
     padding: 10px 10px 10px 30px;
 
@@ -93,7 +94,7 @@ export default {
   }
 
   @mixin can-toggle-branding(
-  $can-toggle-off-color: #777,
+  $can-toggle-off-color: #111,
   $can-toggle-on-color: #5fc054,
   $can-toggle-inactive-text: rgba(white, 0.5),
   $can-toggle-transition: cubic-bezier(0,1,0.5,1)
