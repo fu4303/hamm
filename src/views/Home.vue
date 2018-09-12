@@ -26,7 +26,7 @@ export default {
         id: 1,
         title: 'The Meg',
         year: '2018',
-        poster: 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/sFC1ElvoKGdHJIWRpNB3xWJ9lJA.jpg',
+        poster: 'https://image.tmdb.org/t/p/w370_and_h556_bestv2/xqECHNvzbDL5I3iiOVUkVPJMSbc.jpg',
         plot: 'A deep sea submersible pilot revisits his past fears in the Mariana Trench, and accidentally unleashes the seventy foot ancestor of the Great White Shark believed to be extinct.'
       }, {
         id: 2,
