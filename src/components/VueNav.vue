@@ -1,9 +1,13 @@
 <template>
   <section id="nav-container">
     <nav id="nav">
-      <router-link to="/" tag="span">Halloween Movie Marathon Generator</router-link>
-      <router-link to="/">Movie List</router-link>
-      <router-link to="/selected">Selected Movies</router-link>
+      <h1>
+        <a href="/">Halloween Movie Marathon Generator</a>
+      </h1>
+      <section class="navigation-nested">
+        <router-link to="/" >Movie List</router-link>
+        <router-link to="/selected" >Selected Movies</router-link>
+      </section>
     </nav>
   </section>
 </template>
@@ -35,22 +39,44 @@ export default {
       font-size: 1.414em;
       letter-spacing: 1.125px;
       font-family: 'Cormorant Garamond', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-      font-variant-caps: all-small-caps;
       cursor: pointer;
     }
 
     @media screen and (min-width: 900px) {
-      flex-direction: row;
+      flex-direction: column;
       justify-content: space-between;
       max-width: 1000px;
     }
   }
-  span {
-      font-size: 1.414em;
-      line-height: 1.2;
+  h1 {
+    a {
+      letter-spacing: -6px;
       font-family: 'Metamorphous', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
       color: #000;
       font-weight: bold;
       cursor: pointer;
     }
+  }
+  .navigation-nested {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    @media screen and (min-width: 551px) {
+      justify-content: flex-start;
+      flex-direction: row;
+    }
+
+    & > a {
+      width: 100%;
+      @media screen and (min-width: 551px) {
+        width: 50%;
+      }
+    }
+  }
+
+  a.router-link-exact-active {
+    color: #fff !important;
+    text-decoration: underline;
+  }
 </style>
