@@ -1,5 +1,6 @@
 <template>
   <section id="nav-container">
+    <img src="../assets/tmdb1.png" alt="Powered by The Movie Database" class="tmdb"/>
     <nav id="nav">
       <h1>
         <a href="/">Halloween Movie Marathon Generator</a>
@@ -23,6 +24,7 @@ export default {
   #nav-container {
     width: 100%;
     background-color: #E86252;
+    position: relative;
   }
   #nav {
     padding: 30px;
@@ -78,5 +80,18 @@ export default {
   a.router-link-exact-active {
     color: #fff !important;
     text-decoration: underline;
+  }
+
+  .tmdb {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    width: 43.8px;
+    display: block;
+    height: auto;
+
+    @media screen and (min-width: 800px) {
+      width: 96.53px;
+    }
   }
 </style>
