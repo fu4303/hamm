@@ -19,5 +19,7 @@ export default {
 
 
 <style lang="scss">
-
+  :root {
+    --orange: #E86252;
+  }
 </style>
