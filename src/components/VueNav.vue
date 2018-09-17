@@ -1,6 +1,6 @@
 <template>
   <section id="nav-container">
-    <img src="../assets/tmdb1.png" alt="Powered by The Movie Database" class="tmdb"/>
+    <img src="../assets/tmdb.png" alt="Powered by The Movie Database" class="tmdb"/>
     <nav id="nav">
       <h1>
         <a href="/">Halloween Movie Marathon Generator</a>
@@ -54,7 +54,7 @@ export default {
     a {
       letter-spacing: -6px;
       font-family: 'Metamorphous', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-      color: #000;
+      color: #960200;
       font-weight: bold;
       cursor: pointer;
     }
