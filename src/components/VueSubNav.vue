@@ -78,6 +78,7 @@ export default {
   #subnav-container {
     width: 100%;
     background: #484a47;
+    color: #FDF4E1;
   }
 
   #subnav {
@@ -95,7 +96,7 @@ export default {
 
   @mixin can-toggle-branding(
   $can-toggle-off-color: #111,
-  $can-toggle-on-color: #5fc054,
+  $can-toggle-on-color: #00d474,
   $can-toggle-inactive-text: rgba(white, 0.5),
   $can-toggle-transition: cubic-bezier(0,1,0.5,1)
 ) {
