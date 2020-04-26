@@ -1,6 +1,5 @@
 <template>
   <header id="nav-container">
-    <img src="../assets/tmdb.png" alt="Powered by The Movie Database" class="tmdb"/>
     <nav id="nav">
       <h1>
         <a href="/">Halloween Movie Marathoner</a>

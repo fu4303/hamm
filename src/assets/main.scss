@@ -1,19 +1,19 @@
-@import url('stylesheet.css');
+@import url("stylesheet.css");
 // ==== Colors =====
-$orange: #E86252;
+$orange: #e86252;
 $black: #333;
 $grey: #484a47;
 // ==== Typefaces ====
-$display: 'Friday13';
-$backup: Georgia, Cambria, Cochin, Times, 'Times New Roman', serif;
-$serif: 'Cormorant Garamond';
+$sans: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
 // ==== Defaults ====
 html {
   box-sizing: border-box;
   font-size: 1.125em;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: inherit;
 }
 
@@ -26,14 +26,19 @@ body {
   height: 100%;
   line-height: 1.45;
   font-weight: 400;
-  font-family: $backup, Helvetica, Arial, sans-serif;
+  font-family: $sans, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 //==== Typography ====
-p {margin-bottom: 1.3em}
+p {
+  margin-bottom: 1.3em;
+}
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   margin: 1.414em 0 0.5em;
   font-weight: inherit;
   line-height: 1.2;
@@ -61,6 +66,7 @@ h4 {
   }
 }
 
-small, .font_small {
+small,
+.font_small {
   font-size: 0.707em;
 }

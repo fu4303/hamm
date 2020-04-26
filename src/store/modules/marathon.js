@@ -7,12 +7,27 @@ export default {
   },
   mutations: {
     ADD_ONE(state, movieID) {
-      state.marathonList.push(movieId);
+      state.marathonList.push(movieID);
     },
     REMOVE_ONE(state, movieID) {
-      state.marathonList.remove(movieID);
+      remove(state.marathonList, movieID);
+    },
+    RESET(state) {
+      state.marathonList = [];
     }
   },
-  actions: {}
-
+  actions: {
+    async addMovieToList({commit}, movieID) {
+      commit('ADD_ONE', movieID);
+    },
+    async removeMovieFromList({commit}, movieID) {
+      commit('REMOVE_ONE', movieID);
+    },
+    clear({commit}) {
+      commit('RESET');
+    }
+  },
+  getters: {
+    getMarathonList: state => state.marathonList
+  }
 }
