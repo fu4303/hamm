@@ -3,7 +3,7 @@
     <img src="../assets/tmdb.png" alt="Powered by The Movie Database" class="tmdb"/>
     <nav id="nav">
       <h1>
-        <a href="/">Halloween Movie Marathon Generator</a>
+        <a href="/">Halloween Movie Marathoner</a>
       </h1>
       <section class="navigation-nested">
         <router-link to="/" class="btn hvr-wobble-vertical">Movie List</router-link>
