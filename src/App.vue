@@ -1,15 +1,24 @@
 <template>
-  <div id="app">
-    <router-view/>
-  </div>
+  <v-app>
+    <SideNav />
+    <!-- Sizes your content based upon application components -->
+    <v-content>
+      <!-- Provides the application the proper gutter -->
+      <v-container fluid>
+        <!-- If using vue-router -->
+        <router-view></router-view>
+      </v-container>
+    </v-content>
+  </v-app>
 </template>
 
 <script>
+import SideNav from "@components/SideNavigation";
+export default {
+  components: {
+    SideNav
+  }
+};
 </script>
 
-
-<style lang="scss">
-  :root {
-    --orange: #E86252;
-  }
-</style>
+<style lang="scss"></style>

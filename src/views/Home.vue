@@ -1,58 +1,37 @@
 <template>
-  <v-container>
-    <v-navigation-drawer absolute dark>
-      <v-list dense nav class="py-0">
-        <v-list-item two-line>
-          <v-list-item-content>
-            <v-list-item-title>Hmm</v-list-item-title>
-            <v-list-item-subtitle
-              >Halloween Movie Marathoner</v-list-item-subtitle
-            >
-          </v-list-item-content>
-        </v-list-item>
-
-        <v-divider></v-divider>
-
-        <v-list-item v-for="item in items" :key="item.title" link>
-          <v-list-item-icon>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-icon>
-
-          <v-list-item-content>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-      <template v-slot:append>
-        <div class="pa-2">
-          <v-divider></v-divider>
-          <img
-            src="../assets/tmdb.png"
-            alt="Powered by The Movie Database"
-            class="tmdb"
-          />
-        </div>
-      </template>
-    </v-navigation-drawer>
+  <v-container class="d-flex flex-wrap space-between">
+    <MovieCard
+      v-for="movie in movies"
+      :key="movie.id"
+      :poster="movie.poster_path"
+      :id="movie.id"
+      :isAdult="movie.adult"
+      :backgroundImage="movie.backdrop_image"
+      :movieTitle="movie.title"
+      :genres="movie.genres"
+      :imdbRating="movie.vote_average"
+      :summary="movie.overview"
+      :releaseDate="movie.release_date"
+    />
   </v-container>
 </template>
 
 <script>
 import movies from "../movies-test";
+import MovieCard from "@components/MovieCard";
 export default {
   name: "home",
   data() {
     return {
-      items: [
-        { title: "Movies", icon: "mdi-view-dashboard" },
-        { title: "Marathon List", icon: "mdi-image" },
-        { title: "Calendar", icon: "mdi-help-box" }
-      ],
-      movies
+      movies,
+      currentPage: 1
     };
   },
+  components: {
+    MovieCard
+  },
   created() {
-    this.$store.dispatch("page/getPage");
+    this.$store.dispatch("page/getPage", this.currentPage);
   }
 };
 </script>
@@ -76,18 +55,5 @@ export default {
 
 .padding {
   margin-top: 1rem;
-}
-
-.tmdb {
-  position: absolute;
-  bottom: 30px;
-  right: 30px;
-  width: 43.8px;
-  display: block;
-  height: auto;
-
-  @media screen and (min-width: 800px) {
-    width: 96.53px;
-  }
 }
 </style>

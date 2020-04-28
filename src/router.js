@@ -14,13 +14,16 @@ export default new Router({
       component: Home
     },
     {
-      path: "/selected",
-      name: "selected",
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
+      path: "/marathon-list",
+      name: "marathon-list",
       component: () =>
-        import(/* webpackChunkName: "about" */ "./views/Selected.vue")
+        import(/* webpackChunkName: "about" */ "./views/MarathonList.vue")
+    },
+    {
+      path: "/calendar",
+      name: "calendar",
+      component: () =>
+        import(/* webpackChunkName: "about" */ "./views/Calendar.vue")
     }
   ]
 });
