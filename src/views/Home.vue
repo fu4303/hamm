@@ -1,5 +1,6 @@
 <template>
-  <v-container class="d-flex flex-wrap space-between">
+  <div>
+  <div class="d-flex flex-wrap space-between">
     <MovieCard
       v-for="movie in movies"
       :key="movie.id"
@@ -8,30 +9,38 @@
       :isAdult="movie.adult"
       :backgroundImage="movie.backdrop_image"
       :movieTitle="movie.title"
-      :genres="movie.genres"
+      :genres="movie.genre_ids"
       :imdbRating="movie.vote_average"
       :summary="movie.overview"
       :releaseDate="movie.release_date"
+      class="mb-8"
     />
-  </v-container>
+  </div>
+  <MPagination
+    :currentPage="currentPage"
+    :pages="pages" />
+  </div>
 </template>
 
 <script>
-import movies from "../movies-test";
 import MovieCard from "@components/MovieCard";
+import MPagination from "@components/MoviePagination";
 export default {
   name: "home",
-  data() {
-    return {
-      movies,
-      currentPage: 1
-    };
-  },
   components: {
-    MovieCard
+    MovieCard,
+    MPagination
   },
-  created() {
-    this.$store.dispatch("page/getPage", this.currentPage);
+  computed: {
+    movies() {
+      return this.$store.getters['page/getMovies'];
+    },
+    pages() {
+      return this.$store.getters['page/getTotalPages'];
+    },
+    currentPage() {
+      return this.$store.getters['page/getCurrentPage'];
+    }
   }
 };
 </script>

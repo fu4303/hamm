@@ -2,7 +2,7 @@
   <v-app>
     <SideNav />
     <!-- Sizes your content based upon application components -->
-    <v-content>
+    <v-content class="test">
       <!-- Provides the application the proper gutter -->
       <v-container fluid>
         <!-- If using vue-router -->
@@ -21,4 +21,8 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.test {
+  margin-left: 256px;
+}
+</style>

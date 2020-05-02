@@ -5,7 +5,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    marathonList() {
+      return this.$store.getters['marathon/marathonList'];
+    }
+  }
+};
 </script>
 
 <style lang="scss"></style>
