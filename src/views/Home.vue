@@ -1,24 +1,24 @@
 <template>
-  <div>
-  <div class="d-flex flex-wrap space-between">
-    <MovieCard
-      v-for="movie in movies"
-      :key="movie.id"
-      :poster="movie.poster_path"
-      :id="movie.id"
-      :isAdult="movie.adult"
-      :backgroundImage="movie.backdrop_image"
-      :movieTitle="movie.title"
-      :genres="movie.genre_ids"
-      :imdbRating="movie.vote_average"
-      :summary="movie.overview"
-      :releaseDate="movie.release_date"
-      class="mb-8"
-    />
-  </div>
-  <MPagination
-    :currentPage="currentPage"
-    :pages="pages" />
+  <div id="top">
+    <div class="d-flex flex-wrap space-between">
+      <MovieCard
+        v-for="movie in movies"
+        :key="movie.id"
+        :poster="movie.poster_path"
+        :id="movie.id"
+        :isAdult="movie.adult"
+        :backgroundImage="movie.backdrop_image"
+        :movieTitle="movie.title"
+        :genres="movie.genre_ids"
+        :imdbRating="movie.vote_average"
+        :summary="movie.overview"
+        :releaseDate="movie.release_date"
+        class="mb-8"
+      />
+    </div>
+    <MPagination
+      :currentPage="currentPage"
+      :pages="pages" />
   </div>
 </template>
 

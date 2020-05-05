@@ -1,6 +1,6 @@
 <template>
   <v-card
-    class="mx-auto"
+    class="mx-auto movie--card"
     max-width="300">
     <v-img
       :src="`https://image.tmdb.org/t/p/w500/${this.poster}`"
@@ -15,7 +15,7 @@
     <v-card-subtitle>
       <v-chip
         v-for="item in getGenres" :key="item"
-        class="ma-1 orange darken-3"
+        class="ma-1 grey darken-3"
         small
         label>
         {{item}}
@@ -23,13 +23,11 @@
     </v-card-subtitle>
 
     <v-card-actions>
-      <v-btn text>Add to List</v-btn>
-
       <v-btn
-        color="purple"
-        text>
-        Explore
-      </v-btn>
+        text
+        @click="addToMarathon({id, movieTitle})">
+      Add to List
+    </v-btn>
 
       <v-spacer></v-spacer>
 
@@ -41,11 +39,19 @@
     </v-card-actions>
 
     <v-expand-transition>
-      <div v-if="show">
+      <div v-if="show" class="grey lighten-3 dropdown">
         <v-divider></v-divider>
-        <v-card-text>
+        <v-card-text class="title black--text">
+          {{ movieTitle }}
+        </v-card-text>
+        <v-card-text class="grey--text text--darken-4">
           {{summary}}
         </v-card-text>
+        <v-btn
+          icon
+          @click="showDropdown">
+          <v-icon class="grey--text text--darken-4 float-right">{{ show ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
+        </v-btn>
       </div>
     </v-expand-transition>
   </v-card>
@@ -94,7 +100,8 @@ export default {
   },
   computed: {
     getGenres() {
-      return this.genres.map(el => genresLookup(el));
+      const genres = this.genres.map(el => genresLookup(el));
+      return genres.slice(0, 3);
     }
   },
   data() {
@@ -103,8 +110,8 @@ export default {
     };
   },
   methods: {
-    addToMarathon(id) {
-      this.$store.commit("addMovieToList", id);
+    addToMarathon(movie) {
+      this.$store.dispatch("marathon/addMovieToList", movie);
     },
     showDropdown() {
       this.show = !this.show;
@@ -124,13 +131,9 @@ export default {
   overflow: hidden;
 }
 
-// .movie--card {
-//   display: flex;
-//   flex-direction: row;
-//   max-width: 32%;
-//   background: #fff;
-//   color: #333;
-// }
+.movie--card {
+  position: relative;
+}
 
 // .movie--information {
 //   position: relative;
@@ -139,4 +142,11 @@ export default {
 //     font-size: 18px;
 //   }
 // }
+
+.dropdown {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  z-index: 50;
+}
 </style>

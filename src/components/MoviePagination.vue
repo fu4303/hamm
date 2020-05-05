@@ -2,6 +2,7 @@
   <div>
     <v-pagination
       dark
+      color="#F57C00"
       :length="pages"
       :next-icon="nextIcon"
       :prev-icon="prevIcon"
@@ -27,15 +28,21 @@
         nextIcon: 'mdi-chevron-right',
         prevIcon: 'mdi-chevron-left',
         totalVisible: 13,
+        to: '#top'
       }
     },
     methods: {
       getPage(pageNumber) {
-        this.$store.dispatch("page/getPage", pageNumber);
+        if(this.currentPage <= this.pages) {
+          this.$store.dispatch("page/getPage", pageNumber);
+          this.$router.push({name: 'home', query: { page: pageNumber }});
+        }
       },
       getNextPage() {
         if(this.currentPage <= this.pages) {
-          this.$store.dispatch('page/getPage', this.currentPage + 1);
+          const currentPage = this.currentPage + 1;
+          this.$store.dispatch('page/getPage', currentPage);
+          this.$router.push({name: 'home', query: { page: currentPage }});
         }
       }
     },
