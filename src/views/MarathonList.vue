@@ -14,6 +14,9 @@
       </h1>
     </div>
     <div v-else>
+      <div class="test">
+        <v-btn text @click="resetList">Reset</v-btn>
+      </div>
       <v-container>
         <h1 class="display-1 mt-4">Marathon List 
           <span class="caption">({{ moviesLeft }} movies remaining)</span>
@@ -54,6 +57,9 @@ export default {
     removeFromList(id) {
       this.$store.dispatch('marathon/removeMovieFromList', id)
         .then(console.log('removed'))
+    },
+    resetList() {
+      this.$store.dispatch('marathon/clear');
     }
   }
 };

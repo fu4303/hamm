@@ -22,6 +22,7 @@ export default {
     },
     RESET(state) {
       state.marathonList = [];
+      state.events = [];
     },
     UPDATE_MOVIE_COUNT(state, type) {
       if(type === 'add' && state.moviesLeft >= 1) {
@@ -47,11 +48,11 @@ export default {
         commit('ADD_ONE', movieID);
         commit('UPDATE_MOVIE_COUNT', 'add');
 
-        const date = state.startDate.getDate() === 1
+        const date = state.events.length <= 0
           ? addDays(state.startDate, 0)
           : addDays(state.startDate, 1);
-        
         commit('UPDATE_NEXT_DATE', date);
+        
         commit('ADD_TO_CALENDAR', {
           name: movieID.movieTitle, 
           start: `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
