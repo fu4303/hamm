@@ -1,15 +1,14 @@
 <template>
   <v-row class="fill-height" id="test">
     <v-col>
-      <h1 v-show="show" class="custom">{{currentYear}} Halloween Marathon</h1>
+      <h1 class="custom blue-grey--text text--darken-5">{{currentYear}} Halloween Marathon</h1>
       <v-sheet height="500">
         <v-calendar
           ref="calendar"
-          :dark="!show"
-          :light="show"
+          :light="true"
           type="month"
           :short-weekdays="false"
-          event-color="transparent"
+          event-color="red lighten-1"
           :events="getEvents"
           :event-height="22"
           :event-margin-bottom="-20"
@@ -17,14 +16,17 @@
           :end="`${currentYear}-10-31`"
         ></v-calendar>
       </v-sheet>
-      <div class="">
+      <div class="mt-8">
         <v-btn
           outlined
+          class="blue-grey--text text--darken-4"
           @click="generateRandom">
           Get Random Movies
         </v-btn>
         <v-btn
           outlined
+          :disabled="!hasEvents"
+          :class="['ml-4 blue-grey--text', !hasEvents ? 'text--lighten-1' : 'text--darken-4']"
           @click="generatePDF">
           Generate PDF
         </v-btn>
@@ -47,6 +49,11 @@ export default {
     },
     getEvents() {
       return this.$store.getters['marathon/getCalendarEvents'];
+    },
+    hasEvents() {
+      return this.getEvents.length > 20
+        ? true
+        : false;
     }
   },
   methods: {

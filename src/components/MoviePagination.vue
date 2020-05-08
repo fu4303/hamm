@@ -1,8 +1,8 @@
 <template>
   <div>
     <v-pagination
-      dark
-      color="#F57C00"
+      light
+      color="blue-grey lighten-2"
       :length="pages"
       :next-icon="nextIcon"
       :prev-icon="prevIcon"

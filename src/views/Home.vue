@@ -13,7 +13,8 @@
         :imdbRating="movie.vote_average"
         :summary="movie.overview"
         :releaseDate="movie.release_date"
-        class="mb-8"
+        class="mb-4"
+        @movie:add="$emit('show:message', { text: 'Successfully added movie', time: 3.5})"
       />
     </div>
     <MPagination
