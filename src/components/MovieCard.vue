@@ -2,12 +2,22 @@
   <v-card
     class="mt-4 mx-auto elevation-0 movie--card"
     max-width="300">
-    <v-img
-      :src="`https://image.tmdb.org/t/p/w500/${this.poster}`"
-      lazy-src="./images/no-poster.svg"
-      class="movie--card br-8"
-      position="center top"
-    ></v-img>
+    <div v-if="posterImage">
+      <v-img
+        :src="`https://image.tmdb.org/t/p/w500/${this.poster}`"
+        class="movie--card br-8"
+        position="center top"
+      ></v-img>
+    </div>
+    <div v-else>
+      <v-img
+        src="/images/no-poster.svg"
+        class="movie--card br-8"
+        position="center top"
+      ></v-img>
+    </div>
+    
+    
 
     <section class="movie--info br-8 mx-4 white elevation-2">
       <v-card-subtitle>
@@ -95,9 +105,7 @@ export default {
       return genres.slice(0, 3);
     },
     posterImage() {
-      this.poster !== null
-        ? `https://image.tmdb.org/t/p/w500/${this.poster}`
-        : './assets/no-poster.svg';
+      return this.poster ? true : false;
     }
   },
   data() {
